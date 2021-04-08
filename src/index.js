@@ -826,7 +826,7 @@ export default ({ option, echarts, Chart, events }) => {
         <div className="bgBox"></div>
         <div className="bannerBox" onClick={(e) => navSkip(e)}>
           <a className="security" style={{ color: "#FF7C02" }}>
-            要素环境展示
+            环境展示
           </a>
           <a className="peopleAdmin">疫情预警</a>
           <a className="equipmentAdmin">人员监测</a>
