@@ -763,9 +763,13 @@ export const Index = ({ option, echarts, Chart, events }) => {
       <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
         <div
           className="logo"
-          style={{ color: "#ffffff", padding: "12px", fontSize: "24px" }}
+          style={{
+            color: "#ffffff",
+            padding: "12px 18px 0px 18px",
+            fontSize: "16px",
+          }}
         >
-          <span>疫情预警平台</span>
+          <span>常态化疫情预警平台</span>
         </div>
         <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
           <Menu.Item key="1" icon={<PieChartOutlined />}>
