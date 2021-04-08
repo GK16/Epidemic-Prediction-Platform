@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
-import "./style/index.scss";
+import React, { useEffect, useState } from "react";
+// import "./style/index.scss";
+import "antd/dist/antd.css";
 import {
   modelAngle,
   allCameras,
@@ -9,11 +10,32 @@ import {
   modelHidden,
   opacityModel,
 } from "./config/modelConfig";
-
+import { Layout, Menu, Breadcrumb } from "antd";
+import {
+  DesktopOutlined,
+  PieChartOutlined,
+  FileOutlined,
+  TeamOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 import { loadjs } from "./util/index";
 
-export default ({ option, echarts, Chart, events }) => {
+const { Header, Content, Footer, Sider } = Layout;
+const { SubMenu } = Menu;
+
+export const Index = ({ option, echarts, Chart, events }) => {
+  // class SiderDemo extends React.Component {
+  //   state = {
+  //     collapsed: false,
+  //   };
+
+  //   onCollapse = (collapsed) => {
+  //     console.log(collapsed);
+  //     this.setState({ collapsed });
+  //   };
+  // }
   let { fetch, uuid, version, rect, config, mode } = option;
+  // const { collapsed } = this.state;
   let { onAction, onLocation } = events;
   //巡检路线
   var pollingCameras = allCameras.filter((item) => {
@@ -31,6 +53,12 @@ export default ({ option, echarts, Chart, events }) => {
   var map;
   var homeFlag = true;
   var skyBoxManager;
+
+  const [collapsed, setCollapsed] = useState(false);
+  const onCollapse = (collapsed) => {
+    console.log(collapsed);
+    setCollapsed(collapsed);
+  };
 
   useEffect(() => {
     loadjs(
@@ -740,142 +768,184 @@ export default ({ option, echarts, Chart, events }) => {
   }
 
   return (
-    <div id="warp" style={{ rect }}>
-      <div className="overhiddenImg">
-        <img
-          src="https://aecore-doc.glodon.com/content/file/afae08e75eb44ae688ad8331555961ef_tmpWechatIMG43.png"
-          alt=""
-        />
-        <img
-          src="https://aecore-doc.glodon.com/content/file/bd12185f7a854b5a9e1c50696e9d5028_tmptest.png"
-          alt=""
-        />
-        <img
-          src="https://aecore-doc.glodon.com/content/file/40e72c673d3640548ed18fd5fb554c15_tmptest1.png"
-          alt=""
-        />
-      </div>
-      <div
-        className="btnList"
-        onClick={(e) => {
-          Tab(e);
-        }}
-      >
-        <div title="消防报警" className="wraningbox">
-          <img
-            className="wraningImg"
-            src="https://aecore-doc.glodon.com/content/file/a2b59a5937374f58bd32e1537f732247_tmpWechatIMG46.png"
-          />
-          <p className="wraningText">消防报警</p>
-        </div>
-        <div title="视屏监控" className="videoBox">
-          <div className="videoMonitoring bgbox"></div>
-          <img
-            className="videoImg"
-            src="https://aecore-doc.glodon.com/content/file/6c2b134c73984398817ef63a57ab717d_tmptest4.png"
-            alt=""
-          />
-        </div>
-        <div title="巡检路线" className="pollingBox">
-          <div className="pollingPath bgbox"></div>
-          <img
-            className="pollImg"
-            src="https://aecore-doc.glodon.com/content/file/6ba776b1b7cb4311978f5c5d1308a5a5_tmpWechatIMG45.png"
-            alt=""
-          />
-        </div>
-        <div title="路径漫游" className="pathBox">
-          <div className="pathRoam bgbox"></div>
-          <img
-            className="pathImg"
-            src="https://aecore-doc.glodon.com/content/file/ffa4a69a3b894413969961e503b3a6c4_tmpWechatIMG44.png"
-            alt=""
-          />
-        </div>
-      </div>
-      <video
-        src="https://aecore-doc.glodon.com/content/file/96cd8e1c19554d5d996503318305dc11_tmpfire.mp4"
-        id="cameraVideo"
-        controls
-      ></video>
-      <div id="domId"></div>
-      <div className="leftMask">
-        <img
-          src="https://aecore-doc.glodon.com/content/file/7374df77d0ee447d9effb9e484017c45_tmpleft1.png"
-          alt=""
-        />
-      </div>
-      <div className="rightMask">
-        <img
-          src="https://aecore-doc.glodon.com/content/file/26ce03a9dd17461893676e964cb2d496_tmpright1.png"
-          alt=""
-        />
-      </div>
-      <div
-        className="home"
-        onClick={() => {
-          backAngle();
-        }}
-      >
-        <img
-          src="https://aecore-doc.glodon.com/content/file/c2043d7c96de48c2b8024271a7a24644_tmphome.png"
-          alt=""
-        />
-      </div>
-      <div className="nav-wrap">
-        <div className="bgBox"></div>
-        <div className="bannerBox" onClick={(e) => navSkip(e)}>
-          <a className="security" style={{ color: "#FF7C02" }}>
-            环境展示
-          </a>
-          <a className="peopleAdmin">疫情预警</a>
-          <a className="equipmentAdmin">人员监测</a>
-          <a className="environment">环境监测</a>
-        </div>
-        <div className="navBox">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="1920"
-            height="56"
-            viewBox="0 0 1920 56"
+    <Layout style={{ minHeight: "100vh" }}>
+      <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+        <div className="logo" />
+        <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
+          <Menu.Item key="1" icon={<PieChartOutlined />}>
+            Option 1
+          </Menu.Item>
+          <Menu.Item key="2" icon={<DesktopOutlined />}>
+            Option 2
+          </Menu.Item>
+          <SubMenu key="sub1" icon={<UserOutlined />} title="User">
+            <Menu.Item key="3">Tom</Menu.Item>
+            <Menu.Item key="4">Bill</Menu.Item>
+            <Menu.Item key="5">Alex</Menu.Item>
+          </SubMenu>
+          <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
+            <Menu.Item key="6">Team 1</Menu.Item>
+            <Menu.Item key="8">Team 2</Menu.Item>
+          </SubMenu>
+          <Menu.Item key="9" icon={<FileOutlined />}>
+            Files
+          </Menu.Item>
+        </Menu>
+      </Sider>
+
+      <Layout className="site-layout">
+        <Header className="site-layout-background" style={{ padding: 0 }} />
+        <Content style={{ margin: "0 16px" }}>
+          <div
+            className="site-layout-background"
+            style={{ padding: 24, minHeight: 360 }}
           >
-            <defs>
-              <linearGradient
-                id="导航-a"
-                x1="139%"
-                x2="0%"
-                y1="49.959%"
-                y2="50.041%"
+            {/* <div id="warp" style={{ rect }}>
+              <div className="overhiddenImg">
+                <img
+                  src="https://aecore-doc.glodon.com/content/file/afae08e75eb44ae688ad8331555961ef_tmpWechatIMG43.png"
+                  alt=""
+                />
+                <img
+                  src="https://aecore-doc.glodon.com/content/file/bd12185f7a854b5a9e1c50696e9d5028_tmptest.png"
+                  alt=""
+                />
+                <img
+                  src="https://aecore-doc.glodon.com/content/file/40e72c673d3640548ed18fd5fb554c15_tmptest1.png"
+                  alt=""
+                />
+              </div> */}
+            {/* <div
+                className="btnList"
+                onClick={(e) => {
+                  Tab(e);
+                }}
               >
-                <stop offset="0%" stopColor="#02E1FF" />
-                <stop offset="100%" stopColor="#202439" />
-              </linearGradient>
-            </defs>
-            <g
-              fill="none"
-              fillRule="evenodd"
-              stroke="url(#导航-a)"
-              strokeWidth="2"
-              opacity=".8"
-              transform="translate(0 1)"
-            >
-              <polyline points="486 0 471.018 14 0 14" />
-              <polyline
-                points="486 40 471.018 54 0 54"
-                transform="matrix(1 0 0 -1 0 94)"
-              />
-              <polyline
-                points="1920 0 1905.018 14 1434 14"
-                transform="matrix(-1 0 0 1 3354 0)"
-              />
-              <polyline
-                points="1920 40 1905.018 54 1434 54"
-                transform="rotate(180 1677 47)"
-              />
-            </g>
-          </svg>
-        </div>
-      </div>
-    </div>
+                <div title="消防报警" className="wraningbox">
+                  <img
+                    className="wraningImg"
+                    src="https://aecore-doc.glodon.com/content/file/a2b59a5937374f58bd32e1537f732247_tmpWechatIMG46.png"
+                  />
+                  <p className="wraningText">消防报警</p>
+                </div>
+                <div title="视屏监控" className="videoBox">
+                  <div className="videoMonitoring bgbox"></div>
+                  <img
+                    className="videoImg"
+                    src="https://aecore-doc.glodon.com/content/file/6c2b134c73984398817ef63a57ab717d_tmptest4.png"
+                    alt=""
+                  />
+                </div>
+                <div title="巡检路线" className="pollingBox">
+                  <div className="pollingPath bgbox"></div>
+                  <img
+                    className="pollImg"
+                    src="https://aecore-doc.glodon.com/content/file/6ba776b1b7cb4311978f5c5d1308a5a5_tmpWechatIMG45.png"
+                    alt=""
+                  />
+                </div>
+                <div title="路径漫游" className="pathBox">
+                  <div className="pathRoam bgbox"></div>
+                  <img
+                    className="pathImg"
+                    src="https://aecore-doc.glodon.com/content/file/ffa4a69a3b894413969961e503b3a6c4_tmpWechatIMG44.png"
+                    alt=""
+                  />
+                </div>
+              </div> */}
+
+            {/* <video
+                src="https://aecore-doc.glodon.com/content/file/96cd8e1c19554d5d996503318305dc11_tmpfire.mp4"
+                id="cameraVideo"
+                controls
+              ></video> */}
+
+            <div id="domId"></div>
+            {/* <div className="leftMask">
+                <img
+                  src="https://aecore-doc.glodon.com/content/file/7374df77d0ee447d9effb9e484017c45_tmpleft1.png"
+                  alt=""
+                />
+              </div>
+              <div className="rightMask">
+                <img
+                  src="https://aecore-doc.glodon.com/content/file/26ce03a9dd17461893676e964cb2d496_tmpright1.png"
+                  alt=""
+                />
+              </div> */}
+
+            {/* <div
+                className="home"
+                onClick={() => {
+                  backAngle();
+                }}
+              >
+                <img
+                  src="https://aecore-doc.glodon.com/content/file/c2043d7c96de48c2b8024271a7a24644_tmphome.png"
+                  alt=""
+                />
+              </div> */}
+
+            {/* <div className="nav-wrap">
+                <div className="bgBox"></div>
+                <div className="bannerBox" onClick={(e) => navSkip(e)}>
+                  <a className="security" style={{ color: "#FF7C02" }}>
+                    环境展示
+                  </a>
+                  <a className="peopleAdmin">疫情预警</a>
+                  <a className="equipmentAdmin">人员监测</a>
+                </div>
+                <div className="navBox">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1920"
+                    height="56"
+                    viewBox="0 0 1920 56"
+                  >
+                    <defs>
+                      <linearGradient
+                        id="导航-a"
+                        x1="139%"
+                        x2="0%"
+                        y1="49.959%"
+                        y2="50.041%"
+                      >
+                        <stop offset="0%" stopColor="#02E1FF" />
+                        <stop offset="100%" stopColor="#202439" />
+                      </linearGradient>
+                    </defs>
+                    <g
+                      fill="none"
+                      fillRule="evenodd"
+                      stroke="url(#导航-a)"
+                      strokeWidth="2"
+                      opacity=".8"
+                      transform="translate(0 1)"
+                    >
+                      <polyline points="486 0 471.018 14 0 14" />
+                      <polyline
+                        points="486 40 471.018 54 0 54"
+                        transform="matrix(1 0 0 -1 0 94)"
+                      />
+                      <polyline
+                        points="1920 0 1905.018 14 1434 14"
+                        transform="matrix(-1 0 0 1 3354 0)"
+                      />
+                      <polyline
+                        points="1920 40 1905.018 54 1434 54"
+                        transform="rotate(180 1677 47)"
+                      />
+                    </g>
+                  </svg>
+                </div>
+              </div> */}
+            {/* </div> */}
+          </div>
+        </Content>
+        <Footer style={{ textAlign: "center" }}>
+          Ant Design ©2018 Created by Ant UED
+        </Footer>
+      </Layout>
+    </Layout>
   );
 };

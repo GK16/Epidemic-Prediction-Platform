@@ -1,20 +1,20 @@
-#wrap{
-  width: 100%;
-  height: 100%;
+#wrap {
+  // width: 100%;
+  // height: 100%;
   background: #fff;
-  position: relative;
+  // position: relative;
 }
-.overhiddenImg{
+.overhiddenImg {
   overflow: hidden;
 }
-#domId{
+#domId {
   width: 100%;
   height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
 }
-#cameraVideo{
+#cameraVideo {
   z-index: 100;
   position: absolute;
   right: 3%;
@@ -23,29 +23,29 @@
   height: 200px;
   display: none;
 }
-.leftMask{
+.leftMask {
   width: 394px;
   height: 100%;
   position: absolute;
   left: 0;
   top: 0;
-  img{
+  img {
     width: 100%;
     height: 100%;
   }
 }
-.rightMask{
+.rightMask {
   width: 394px;
   height: 100%;
   position: absolute;
   top: 0;
   right: 0;
-  img{
+  img {
     width: 100%;
     height: 100%;
   }
 }
-.home{
+.home {
   position: absolute;
   right: 50px;
   top: 100px;
@@ -53,22 +53,24 @@
   width: 20px;
   height: 20px;
   cursor: pointer;
-  img{
+  img {
     width: 100%;
     height: 100%;
   }
 }
 
-.btnList{
+.btnList {
   width: 100px;
   position: absolute;
   left: 30px;
   top: 90px;
   z-index: 10;
-  .videoBox:hover .videoMonitoring, .pollingBox:hover .pollingPath, .pathBox:hover .pathRoam{
+  .videoBox:hover .videoMonitoring,
+  .pollingBox:hover .pollingPath,
+  .pathBox:hover .pathRoam {
     opacity: 0.6 !important;
   }
-  .videoBox:hover .videoImg{
+  .videoBox:hover .videoImg {
     content: url(https://aecore-doc.glodon.com/content/file/afae08e75eb44ae688ad8331555961ef_tmpWechatIMG43.png);
   }
   .pollingBox:hover .pollImg {
@@ -79,42 +81,42 @@
   }
 }
 
-.wraningbox{
+.wraningbox {
   width: 60px;
   height: 60px;
   z-index: 200;
   cursor: pointer;
-  img{
+  img {
     width: 100%;
     height: 100%;
   }
-  .wraningText{
+  .wraningText {
     width: 103px;
     height: 20px;
-    color: #02E1FF;
+    color: #02e1ff;
     font-size: 14px;
     font-family: PingFangSC-Medium, PingFang SC;
     font-weight: 500;
   }
 }
 
-.videoBox{
+.videoBox {
   margin-top: 40px;
   width: 60px;
   height: 60px;
   position: relative;
   z-index: 200;
   cursor: pointer;
-  .videoMonitoring{
+  .videoMonitoring {
     width: 60px;
     height: 60px;
-    background: #02E1FF;
+    background: #02e1ff;
     border-radius: 50%;
     margin-top: 40px;
-    border: 1px solid #02E1FF;
+    border: 1px solid #02e1ff;
     opacity: 0.35;
   }
-  img{
+  img {
     width: 36px;
     height: 34px;
     z-index: 10;
@@ -126,23 +128,24 @@
   }
 }
 
-
-.pollingBox, .pathBox{
+.pollingBox,
+.pathBox {
   margin-top: 20px;
   width: 60px;
   height: 60px;
   position: relative;
   cursor: pointer;
-  .pollingPath,.pathRoam{
+  .pollingPath,
+  .pathRoam {
     width: 60px;
     height: 60px;
-    background: #02E1FF;
+    background: #02e1ff;
     border-radius: 50%;
     margin-top: 20px;
-    border: 1px solid #02E1FF;
+    border: 1px solid #02e1ff;
     opacity: 0.35;
   }
-  .pollImg{
+  .pollImg {
     width: 36px;
     height: 34px;
     position: absolute;
@@ -151,7 +154,7 @@
     margin-left: -16px;
     margin-top: -17px;
   }
-  .pathImg{
+  .pathImg {
     width: 26px;
     height: 40px;
     position: absolute;
@@ -162,9 +165,7 @@
   }
 }
 
-
-
-.navBox{
+.navBox {
   width: 100%;
   height: 70px;
   display: flex;
@@ -173,8 +174,7 @@
   z-index: 1000;
 }
 
-
-.nav-wrap{
+.nav-wrap {
   width: 100%;
   height: 70px;
   position: absolute;
@@ -182,15 +182,14 @@
   left: 0;
 }
 
-
-.bgBox{
+.bgBox {
   width: 100%;
   height: 100%;
   background: #111111;
   opacity: 0.6;
 }
 
-.bannerBox{
+.bannerBox {
   position: absolute;
   cursor: pointer;
   width: 724px;
@@ -201,25 +200,24 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  a{
+  a {
     // flex: 1;
     display: flex;
-    color:#02E1FF;
+    color: #02e1ff;
     width: 98px;
     height: 33px;
     font-size: 24px;
-    font-family: PingFangSC-Regular, PingFang SC;
-    font-weight: 400;
-    line-height: 33px;
+    font-family: PingFangSC-Regular,  PingFang SC;
+    font-weight: 400;
+    line-height: 33px;
     z-index: 3000;
   }
-  a:hover{
-    color: #FF7C02;
+  a:hover {
+    color: #ff7c02;
   }
-} 
+}
 
-
-.navBox{
+.navBox {
   position: absolute;
   left: 0;
   top: 0;
