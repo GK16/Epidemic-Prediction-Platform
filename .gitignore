@@ -1,0 +1,15 @@
+.DS_Store
+.nyc_output
+coverage
+node_modules/
+build/
+_docker/data/
+yarn-error.log
+yarn.lock
+.vscode
+xxx*
+dump.rdb
+log/
+
+# PWA
+sw.*

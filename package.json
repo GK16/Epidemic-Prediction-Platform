@@ -1,0 +1,47 @@
+{
+  "appId": "3136c49e-cafa-47be-a94b-cbae3790a2f0",
+  "name": "comprehensiveSecurity",
+  "pluginName": {},
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development COMPONENT=react webpack-dev-server --inline --mode=development",
+    "dev:chart": "cross-env NODE_ENV=development COMPONENT=chart webpack-dev-server --inline --mode=development",
+    "build": "cross-env NODE_ENV=production webpack --mode=production"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.5.3",
+    "html-webpack-plugin": "^4.3.0",
+    "less": "^3.11.1",
+    "less-loader": "^6.1.0",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@loadable/component": "^5.12.0",
+    "axios": "^0.21.0",
+    "commander": "^5.1.0",
+    "core-js": "^3.6.5",
+    "echarts": "^4.8.0",
+    "echarts-for-react": "^2.0.16",
+    "echarts-gl": "^1.1.1",
+    "file-loader": "^6.2.0",
+    "jsonfile": "^6.0.1",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-countup": "^4.3.3",
+    "react-dom": "^16.13.1",
+    "sass-loader": "^10.0.4"
+  }
+}

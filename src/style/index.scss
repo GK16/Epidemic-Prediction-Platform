@@ -1,0 +1,226 @@
+#wrap{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: relative;
+}
+.overhiddenImg{
+  overflow: hidden;
+}
+#domId{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#cameraVideo{
+  z-index: 100;
+  position: absolute;
+  right: 3%;
+  top: 17%;
+  width: 300px;
+  height: 200px;
+  display: none;
+}
+.leftMask{
+  width: 394px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+.rightMask{
+  width: 394px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+.home{
+  position: absolute;
+  right: 50px;
+  top: 100px;
+  z-index: 200;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.btnList{
+  width: 100px;
+  position: absolute;
+  left: 30px;
+  top: 90px;
+  z-index: 10;
+  .videoBox:hover .videoMonitoring, .pollingBox:hover .pollingPath, .pathBox:hover .pathRoam{
+    opacity: 0.6 !important;
+  }
+  .videoBox:hover .videoImg{
+    content: url(https://aecore-doc.glodon.com/content/file/afae08e75eb44ae688ad8331555961ef_tmpWechatIMG43.png);
+  }
+  .pollingBox:hover .pollImg {
+    content: url(https://aecore-doc.glodon.com/content/file/bd12185f7a854b5a9e1c50696e9d5028_tmptest.png);
+  }
+  .pathBox:hover .pathImg {
+    content: url(https://aecore-doc.glodon.com/content/file/40e72c673d3640548ed18fd5fb554c15_tmptest1.png);
+  }
+}
+
+.wraningbox{
+  width: 60px;
+  height: 60px;
+  z-index: 200;
+  cursor: pointer;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+  .wraningText{
+    width: 103px;
+    height: 20px;
+    color: #02E1FF;
+    font-size: 14px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+  }
+}
+
+.videoBox{
+  margin-top: 40px;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  z-index: 200;
+  cursor: pointer;
+  .videoMonitoring{
+    width: 60px;
+    height: 60px;
+    background: #02E1FF;
+    border-radius: 50%;
+    margin-top: 40px;
+    border: 1px solid #02E1FF;
+    opacity: 0.35;
+  }
+  img{
+    width: 36px;
+    height: 34px;
+    z-index: 10;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -16px;
+    margin-top: -17px;
+  }
+}
+
+
+.pollingBox, .pathBox{
+  margin-top: 20px;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  cursor: pointer;
+  .pollingPath,.pathRoam{
+    width: 60px;
+    height: 60px;
+    background: #02E1FF;
+    border-radius: 50%;
+    margin-top: 20px;
+    border: 1px solid #02E1FF;
+    opacity: 0.35;
+  }
+  .pollImg{
+    width: 36px;
+    height: 34px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -16px;
+    margin-top: -17px;
+  }
+  .pathImg{
+    width: 26px;
+    height: 40px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -12px;
+    margin-top: -20px;
+  }
+}
+
+
+
+.navBox{
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+
+.nav-wrap{
+  width: 100%;
+  height: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.bgBox{
+  width: 100%;
+  height: 100%;
+  background: #111111;
+  opacity: 0.6;
+}
+
+.bannerBox{
+  position: absolute;
+  cursor: pointer;
+  width: 724px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  margin-left: -362px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  a{
+    // flex: 1;
+    display: flex;
+    color:#02E1FF;
+    width: 98px;
+    height: 33px;
+    font-size: 24px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    line-height: 33px;
+    z-index: 3000;
+  }
+  a:hover{
+    color: #FF7C02;
+  }
+} 
+
+
+.navBox{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
