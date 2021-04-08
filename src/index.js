@@ -19,23 +19,14 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { loadjs } from "./util/index";
+import { Typography } from "antd";
 
+const { Title } = Typography;
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 export const Index = ({ option, echarts, Chart, events }) => {
-  // class SiderDemo extends React.Component {
-  //   state = {
-  //     collapsed: false,
-  //   };
-
-  //   onCollapse = (collapsed) => {
-  //     console.log(collapsed);
-  //     this.setState({ collapsed });
-  //   };
-  // }
   let { fetch, uuid, version, rect, config, mode } = option;
-  // const { collapsed } = this.state;
   let { onAction, onLocation } = events;
   //巡检路线
   var pollingCameras = allCameras.filter((item) => {
@@ -770,31 +761,40 @@ export const Index = ({ option, echarts, Chart, events }) => {
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-        <div className="logo" />
+        <div
+          className="logo"
+          style={{ color: "#ffffff", padding: "12px", fontSize: "24px" }}
+        >
+          <span>疫情预警平台</span>
+        </div>
         <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
           <Menu.Item key="1" icon={<PieChartOutlined />}>
-            Option 1
+            主页
           </Menu.Item>
-          <Menu.Item key="2" icon={<DesktopOutlined />}>
-            Option 2
-          </Menu.Item>
-          <SubMenu key="sub1" icon={<UserOutlined />} title="User">
-            <Menu.Item key="3">Tom</Menu.Item>
-            <Menu.Item key="4">Bill</Menu.Item>
-            <Menu.Item key="5">Alex</Menu.Item>
+          <SubMenu key="sub1" icon={<UserOutlined />} title="环境要素展示">
+            <Menu.Item key="3">人口密度</Menu.Item>
+            <Menu.Item key="4">容积率</Menu.Item>
+            <Menu.Item key="5">绿地率</Menu.Item>
+            <Menu.Item key="51">可达性</Menu.Item>
+            <Menu.Item key="52">人流联系</Menu.Item>
           </SubMenu>
-          <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
-            <Menu.Item key="6">Team 1</Menu.Item>
-            <Menu.Item key="8">Team 2</Menu.Item>
+          <SubMenu key="sub2" icon={<TeamOutlined />} title="疫情预警">
+            <Menu.Item key="6">现有疫情</Menu.Item>
+            <Menu.Item key="8">预测</Menu.Item>
+            <Menu.Item key="81">重点小区</Menu.Item>
           </SubMenu>
-          <Menu.Item key="9" icon={<FileOutlined />}>
-            Files
-          </Menu.Item>
+          <SubMenu key="sub3" icon={<TeamOutlined />} title="人员监测">
+            <Menu.Item key="91">小区监控</Menu.Item>
+            <Menu.Item key="92">人员踪迹模拟</Menu.Item>
+          </SubMenu>
         </Menu>
       </Sider>
 
       <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }} />
+        <Header
+          className="site-layout-background"
+          style={{ padding: 0, background: "#ffffff" }}
+        />
         <Content style={{ margin: "0 16px" }}>
           <div
             className="site-layout-background"
