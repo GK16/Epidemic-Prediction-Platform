@@ -20,6 +20,12 @@ import {
 } from "@ant-design/icons";
 import { loadjs } from "./util/index";
 import { Typography } from "antd";
+import {
+  VIEW_TOKEN,
+  BASE_POINT,
+  MODEL_POSITION,
+  MODEL_SCALE,
+} from "./constant/index";
 
 const { Title } = Typography;
 const { Header, Content, Footer, Sider } = Layout;
@@ -60,7 +66,7 @@ export const Index = ({ option, echarts, Chart, events }) => {
           function (params) {
             // getViewTtoken().then(res=>{
             //模型加载初始化
-            viewToken = "192da17e0c03461b936a68c71baf9835";
+            viewToken = VIEW_TOKEN;
             var loaderConfig = new BimfaceSDKLoaderConfig();
             // loaderConfig.viewToken = res;
             loaderConfig.viewToken = viewToken;
@@ -160,27 +166,20 @@ export const Index = ({ option, echarts, Chart, events }) => {
     var mapConfig = new Glodon.Bimface.Plugins.TileMap.MapConfig();
     mapConfig.viewer = viewer3D;
     // 设置模型载入的基点
-    // 	mapConfig.basePoint = {
-    // 		x: 77593.09866774821,
-    // y: -59215.91096083699
-    // 	}
-    // 设置模型载入的基点
-    mapConfig.basePoint = {
-      x: 8102453.569334365,
-      y: 24957090.375515822,
-    };
+    mapConfig.basePoint = BASE_POINT;
     // 设置模型载入基点所对应的经纬度（WGS84）
     // mapConfig.modelPosition = [121.317911,31.202016];
-    mapConfig.modelPosition = [114.02025566511255, 22.526958723638756];
+    // mapConfig.modelPosition = [114.02025566511255, 22.526958723638756];
+    mapConfig.modelPosition = MODEL_POSITION;
     // 设置模型的旋转弧度值
     mapConfig.modelRotationZ = (0 * Math.PI) / 180;
     // 设置模型零零标高对应的高程值，单位为米
     mapConfig.modelAltitude = 13.0;
     //比例调整
     mapConfig.viewer.setModelScale(
-      "2093888524003552",
+      "",
       mapConfig.basePoint,
-      100 // 缩放比例系数
+      MODEL_SCALE // 缩放比例系数
     );
     // 设置开启DEM
     mapConfig.enableElevationModel = true;
@@ -947,7 +946,7 @@ export const Index = ({ option, echarts, Chart, events }) => {
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
-          Ant Design ©2018 Created by Ant UED
+          赛博紫荆队 · 常态化疫情预警平台
         </Footer>
       </Layout>
     </Layout>
